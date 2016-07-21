@@ -1,6 +1,9 @@
 {
   "private": true,
   "name": "NodeJS-Test",
+  "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
+    "postinstall": "sh ./bin/db.setup.sh"
   }
 }
