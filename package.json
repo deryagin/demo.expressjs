@@ -5,5 +5,8 @@
   "scripts": {
     "start": "node src/server.js",
     "postinstall": "sh ./bin/db.setup.sh"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
   }
 }
