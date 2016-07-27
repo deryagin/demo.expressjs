@@ -1,4 +1,4 @@
-var ApiError = require('./ApiError');
+var ApiError = require('../utility/ApiError');
 
 module.exports = DbQuery;
 

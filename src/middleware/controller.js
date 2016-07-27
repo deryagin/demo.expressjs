@@ -1,8 +1,8 @@
-var connPool = require('./ConnPool');
-var Connection = require('./Connection');
-var Transaction = require('./Transaction');
-var DbQuery = require('./DbQuery');
-var HttpQuery = require('./HttpQuery');
+var connPool = require('../database/ConnPool');
+var Connection = require('../database/Connection');
+var Transaction = require('../database/Transaction');
+var DbQuery = require('../database/DbQuery');
+var HttpQuery = require('../utility/HttpQuery');
 
 module.exports.makeOrder = makeOrder;
 

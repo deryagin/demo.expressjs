@@ -1,4 +1,4 @@
-var controller = require('./controller');
+var controller = require('./middleware/controller');
 
 module.exports.configure = configure;
 
