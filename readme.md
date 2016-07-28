@@ -1,24 +1,25 @@
 ###Изменения в БД
 
 1. Изменения можно накатить запустив `sh ./bin/db.setup.sh` или командой `npm run setup`.
-2. Выполнена нормализация. Вместо 3 таблиц создано 4:
-  `product` (product_id, name)
-  `provider` (provider_id, name, creadit)
-  `offer` (offer_id, product_id, provider_id, price)
-  `booking` (booking_id, offer_id, datatime)
-3. Для всех таблиц добавлены PK, индексы и сиквенсы. Для всех FK созданы индексы, но сами FK, как ограничение не используются (не были созданы намеренно).
-4. Для значений, хранящих деньги `provider.credit` и `offer.price`, выбран тип `INTEGER`. Предполагается, что деньги будут храниться в минимальной единице измерения. Например в копейках или центах.
-5. Для столбца `booking.datetime` выбран тип `TIMESTAMP WITHOUT TIME ZONE DEFAULT (NOW() AT TIME ZONE 'UTC')`.
-6. Вместо таблицы `order` добавлена таблица `booking`. Название изменено, чтобы не писать постоянно двойные кавычки. Т.к. `order` -- ключевое слово.
+2. Выполнена нормализация. Вместо 3 таблиц создано 4:  
+  `product` (product_id, name)  
+  `provider` (provider_id, name, credit)  
+  `offer` (offer_id, product_id, provider_id, price)  
+  `booking` (booking_id, offer_id, datetime)  
+3. Для всех таблиц добавлены PK, индексы и сиквенсы.
+4. Для всех FK созданы индексы, но сами FK, как ограничение не используются (не были созданы намеренно).
+5. Для значений, хранящих деньги `provider.credit` и `offer.price`, выбран тип `INTEGER`. Предполагается, что деньги будут храниться в минимальной единице измерения. Например в копейках или центах.
+6. Для столбца `booking.datetime` выбран тип `TIMESTAMP WITHOUT TIME ZONE DEFAULT (NOW() AT TIME ZONE 'UTC')`.
+7. Вместо таблицы `order` добавлена таблица `booking`. Название изменено, чтобы не писать постоянно двойные кавычки. Т.к. `order` -- ключевое слово.
 
 <br />
 
 ###Текст задания
 
-Есть база в PostgreSQL, содержащая три таблицы:
-  `products` (product | provider | price) - содержит соответствие наименования продукта, провайдера и цены.
-  `credits` (provider | credit) - текущий баланс провайдера.
-  `order` (product | provider | price | datetime) - заказы
+Есть база в PostgreSQL, содержащая три таблицы:  
+  `products` (product | provider | price) - содержит соответствие наименования продукта, провайдера и цены.  
+  `credits` (provider | credit) - текущий баланс провайдера.  
+  `order` (product | provider | price | datetime) - заказы.  
 
 Нужно написать на Node.js обработчик запросов (node-server), реализующий следующий функционал:
 
