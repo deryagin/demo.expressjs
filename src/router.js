@@ -1,4 +1,4 @@
-var product = require('./middleware/controller');
+var product = require('./middleware/product.controller');
 
 module.exports.configure = configure;
 
