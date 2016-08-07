@@ -22,7 +22,7 @@ CREATE SEQUENCE provider_id_seq START WITH 1 INCREMENT BY 1;
 CREATE TABLE provider(
   id INTEGER NOT NULL DEFAULT nextval('provider_id_seq'),
   name VARCHAR NOT NULL,
-  credit INTEGER DEFAULT 0,
+  credit BIGINT DEFAULT 0,
   CONSTRAINT provider_id_pk PRIMARY KEY (id),
   CONSTRAINT provider_credit_check CHECK (0 <= credit)
 );
@@ -45,7 +45,7 @@ CREATE TABLE offer(
   id INTEGER NOT NULL DEFAULT nextval('offer_id_seq'),
   product_id INTEGER NOT NULL,
   provider_id INTEGER NOT NULL,
-  price INTEGER DEFAULT 1,
+  price BIGINT DEFAULT 0,
   CONSTRAINT offer_id_pk PRIMARY KEY (id),
   CONSTRAINT offer_price_check CHECK (0 < price)
 );

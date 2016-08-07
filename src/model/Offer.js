@@ -9,7 +9,7 @@ function offer() {
     id: {type: DataType.INTEGER, primaryKey: true, autoIncrement: true},
     product_id: {type: DataType.INTEGER},
     provider_id: {type: DataType.INTEGER},
-    price: {type: DataType.INTEGER, defaultValue: 0}
+    price: {type: DataType.BIGINT, defaultValue: 0}
   });
 
   Offer.findBest = function findBest(offers) {

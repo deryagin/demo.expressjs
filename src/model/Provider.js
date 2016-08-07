@@ -7,7 +7,7 @@ function provider() {
   var Provider = sequelize.define('provider', {
     id: {type: DataType.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataType.STRING},
-    credit: {type: DataType.INTEGER, defaultValue: 0}
+    credit: {type: DataType.BIGINT, defaultValue: 0}
   });
 
   Provider.writeOffCredit = function writeOffCredit(id, price, transaction) {
