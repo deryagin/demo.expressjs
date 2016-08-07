@@ -9,4 +9,4 @@ psql -U postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHER
 # recreate test database
 psql -U postgres -c "DROP DATABASE test"
 psql -U postgres -c "CREATE DATABASE test"
-psql -U postgres -d test -a -f sql/test.refactored.sql
+psql -U postgres -d test -a -f sql/db.refactored.sql
