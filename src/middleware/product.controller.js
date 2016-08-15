@@ -47,9 +47,7 @@ function findBestOffer(offers) {
     });
 }
 
-function makeBooking(params) {
-  let transaction = params[0];
-  let bestOffer = params[1];
+function makeBooking([transaction, bestOffer]) {
   let provider = Provider.writeOffCredit(bestOffer.provider_id, bestOffer.price, transaction);
   let booking = Booking.create({offer_id: bestOffer.id}, {transaction: transaction});
   return Promise.all([provider, booking]);
