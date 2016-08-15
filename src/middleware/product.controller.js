@@ -1,27 +1,27 @@
-var Product = require('../model/Product');
-var Provider = require('../model/Provider');
-var Offer = require('../model/Offer');
-var Booking = require('../model/Booking');
-var Response = require('../utility/Response');
-var ApiError = require('../utility/ApiError');
-var Transaction = require('../utility/Transaction');
+const Product = require('../model/Product');
+const Provider = require('../model/Provider');
+const Offer = require('../model/Offer');
+const Booking = require('../model/Booking');
+const Response = require('../utility/Response');
+const ApiError = require('../utility/ApiError');
+const Transaction = require('../utility/Transaction');
 
 module.exports.makeOrder = makeOrder;
 
 function makeOrder(req, res) {
-  var response = new Response(res);
-  var productName = Promise.resolve(req.params.productName);
+  let response = new Response(res);
+  let productName = Promise.resolve(req.params.productName);
 
-  var product = productName.then(findProduct);
-  var offers = product.then(findOffers);
-  var bestOffer = offers.then(findBestOffer);
+  let product = productName.then(findProduct);
+  let offers = product.then(findOffers);
+  let bestOffer = offers.then(findBestOffer);
 
-  var transaction = new Transaction();
-  var booked = Promise.all([transaction.promise, bestOffer]).then(makeBooking);
-  var commited = booked.then(transaction.commit);
+  let transaction = new Transaction();
+  let booked = Promise.all([transaction.promise, bestOffer]).then(makeBooking);
+  let commited = booked.then(transaction.commit);
   commited.then(response.send200Ok);
 
-  var error = booked.catch(promisifiedError);
+  let error = booked.catch(promisifiedError);
   error.catch(transaction.rollback);
   error.catch(response.send500Error);
 }
@@ -48,10 +48,10 @@ function findBestOffer(offers) {
 }
 
 function makeBooking(params) {
-  var transaction = params[0];
-  var bestOffer = params[1];
-  var provider = Provider.writeOffCredit(bestOffer.provider_id, bestOffer.price, transaction);
-  var booking = Booking.create({offer_id: bestOffer.id}, {transaction: transaction});
+  let transaction = params[0];
+  let bestOffer = params[1];
+  let provider = Provider.writeOffCredit(bestOffer.provider_id, bestOffer.price, transaction);
+  let booking = Booking.create({offer_id: bestOffer.id}, {transaction: transaction});
   return Promise.all([provider, booking]);
 }
 

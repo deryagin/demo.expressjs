@@ -1,10 +1,10 @@
-var sequelize = require('../tool/sequelize');
-var DataType = sequelize.constructor;
+const sequelize = require('../tool/sequelize');
+const DataType = sequelize.constructor;
 
 module.exports = provider();
 
 function provider() {
-  var Provider = sequelize.define('provider', {
+  let Provider = sequelize.define('provider', {
     id: {type: DataType.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataType.STRING},
     credit: {type: DataType.BIGINT, defaultValue: 0}

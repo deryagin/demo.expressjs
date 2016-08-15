@@ -1,5 +1,5 @@
-var sequelize = require('../tool/sequelize');
-var DataType = sequelize.constructor;
+const sequelize = require('../tool/sequelize');
+const DataType = sequelize.constructor;
 
 module.exports = product();
 

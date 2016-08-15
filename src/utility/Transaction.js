@@ -1,10 +1,10 @@
-var sequelize = require('../tool/sequelize');
+const sequelize = require('../tool/sequelize');
 
 module.exports = Transaction;
 
 function Transaction() {
 
-  var self = this;
+  let self = this;
 
   self.promise = sequelize.transaction();
 
