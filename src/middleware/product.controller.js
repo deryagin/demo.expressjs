@@ -29,21 +29,21 @@ function makeOrder(req, res) {
 function findProduct(productName) {
   return Product.findOne({where: {name: productName}, raw: true})
     .then(function isProductExists(product) {
-      return (product ? product : Promise.reject(new ApiError('Product not found!')));
+      return product || Promise.reject(new ApiError('Product not found!'));
     });
 }
 
 function findOffers(product) {
   return Offer.findAll({where: {product_id: product.id}, order: 'price ASC', raw: true})
     .then(function areOffersExist(offers) {
-      return (offers ? offers : Promise.reject(new ApiError('Offers not found!')));
+      return offers || Promise.reject(new ApiError('Offers not found!'));
     });
 }
 
 function findBestOffer(offers) {
   return Offer.findBest(offers)
     .then(function isOfferExists(bestOffer) {
-      return (bestOffer ? bestOffer : Promise.reject(new ApiError('Offers not found!')));
+      return bestOffer || Promise.reject(new ApiError('Offers not found!'));
     });
 }
 
