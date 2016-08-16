@@ -9,14 +9,10 @@ function Transaction() {
   self.promise = sequelize.transaction();
 
   self.commit = function commit() {
-    return self.promise.then(function (transaction) {
-      transaction.commit();
-    })
+    return self.promise.then((transaction) => transaction.commit())
   };
 
   self.rollback = function rollback() {
-    return self.promise.then(function (transaction) {
-      transaction.rollback();
-    })
+    return self.promise.then((transaction) => transaction.rollback())
   };
 }

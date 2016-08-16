@@ -28,23 +28,17 @@ function makeOrder(req, res) {
 
 function findProduct(productName) {
   return Product.findOne({where: {name: productName}, raw: true})
-    .then(function isProductExists(product) {
-      return product || Promise.reject(new ApiError('Product not found!'));
-    });
+    .then((product) => product || Promise.reject(new ApiError('Product not found!')));
 }
 
 function findOffers(product) {
   return Offer.findAll({where: {product_id: product.id}, order: 'price ASC', raw: true})
-    .then(function areOffersExist(offers) {
-      return offers || Promise.reject(new ApiError('Offers not found!'));
-    });
+    .then((offers) => offers || Promise.reject(new ApiError('Offers not found!')));
 }
 
 function findBestOffer(offers) {
   return Offer.findBest(offers)
-    .then(function isOfferExists(bestOffer) {
-      return bestOffer || Promise.reject(new ApiError('Offers not found!'));
-    });
+    .then((bestOffer) => bestOffer || Promise.reject(new ApiError('Offers not found!')));
 }
 
 function makeBooking([transaction, bestOffer]) {

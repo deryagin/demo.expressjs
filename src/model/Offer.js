@@ -13,26 +13,24 @@ function offer() {
   });
 
   Offer.findBest = function findBest(offers) {
-    let ids = offers.map(extractProviderId);
+    let ids = offers.map((offer) => offer.provider_id);
     let providers = Provider.findAll({where: {id: {$in: ids}, credit: {$gte: 0}}, raw: true})
-    return providers.then(function (providers) {
-      for (let index = 0, length = offers.length; index < length; index++) {
-        let offer = offers[index];
-        if (providers.filter(filterByOffer(offer))[0]) {
-          return offer;
-        }
-      }
-    });
+    return Promise.all([offers, providers]).then(findOffer);
   };
 
   return Offer;
 }
 
-function extractProviderId(offer) {
-  return offer.provider_id;
+function findOffer([offers, providers]) {
+  for (let index = 0, length = offers.length; index < length; index++) {
+    let offer = offers[index];
+    if (providers.filter(hasEnoughCredit(offer))[0]) {
+      return offer;
+    }
+  }
 }
 
-function filterByOffer(offer) {
+function hasEnoughCredit(offer) {
   return function (provider) {
     return (provider.id === offer.provider_id && offer.price <= provider.credit);
   }
