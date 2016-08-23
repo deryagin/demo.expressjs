@@ -5,7 +5,6 @@ const Booking = require('../model/Booking');
 const Response = require('../utility/Response');
 const ApiError = require('../utility/ApiError');
 const Transaction = require('../utility/Transaction');
-
 module.exports.makeOrder = makeOrder;
 
 function makeOrder(req, res) {

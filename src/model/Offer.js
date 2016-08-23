@@ -1,7 +1,6 @@
 const sequelize = require('../tool/sequelize');
 const DataType = sequelize.constructor;
 const Provider = require('./Provider');
-
 module.exports = offer();
 
 function offer() {

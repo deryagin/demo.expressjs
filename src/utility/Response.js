@@ -1,5 +1,4 @@
 const ApiError = require('./ApiError');
-
 module.exports = Response;
 
 function Response(res) {

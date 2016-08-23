@@ -1,5 +1,4 @@
 const sequelize = require('../tool/sequelize');
-
 module.exports = Transaction;
 
 function Transaction() {
