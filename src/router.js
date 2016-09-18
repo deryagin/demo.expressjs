@@ -1,4 +1,4 @@
-const product = require('./middleware/product.controller');
+const product = require('./midware/product.controller');
 module.exports.configure = configure;
 
 function configure(app) {
