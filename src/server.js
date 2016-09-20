@@ -1,6 +1,10 @@
 const app = require('express')();
 const server = require('http').createServer(app);
-const router = require('./router');
+const express = require('./config/express.conf');
+const routes = require('./config/routes.conf');
+const errors = require('./config/errors.conf');
 
-router.configure(app);
+express.configure(app);
+routes.configure(app);
+errors.configure(app);
 server.listen(3000, '0.0.0.0');
