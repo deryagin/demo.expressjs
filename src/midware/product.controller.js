@@ -9,7 +9,7 @@ module.exports.makeOrder = makeOrder;
 
 function makeOrder(req, res) {
   let response = new Response(res);
-  let productName = Promise.resolve(req.params.productName);
+  let productName = Promise.resolve(req.body.name);
 
   let product = productName.then(findProduct);
   let offers = product.then(findOffers);
