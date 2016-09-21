@@ -5,9 +5,9 @@ const Booking = require('../model/Booking');
 const Response = require('../utility/Response');
 const ApiError = require('../utility/ApiError');
 const Transaction = require('../utility/Transaction');
-module.exports.makeOrder = makeOrder;
+module.exports = {create};
 
-function makeOrder(req, res) {
+function create(req, res) {
   let response = new Response(res);
   let productName = Promise.resolve(req.body.name);
 
