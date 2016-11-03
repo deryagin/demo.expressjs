@@ -5,7 +5,7 @@ const Booking = require('../model/Booking');
 const Response = require('../utility/Response');
 const ApiError = require('../utility/ApiError');
 const Transaction = require('../utility/Transaction');
-module.exports = {create};
+module.exports.create = create;
 
 function create(req, res) {
   let response = new Response(res);

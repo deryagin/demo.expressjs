@@ -3,7 +3,7 @@
   "name": "NodeJS-Test",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node srv/server.js",
     "setup": "sh ./bin/db.setup.sh"
   },
   "dependencies": {
