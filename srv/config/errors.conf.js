@@ -17,3 +17,6 @@ function handle5xx(err, req, res, next) {
   let reply = () => res.status(500).json({'error': 'Internal Server Error'});
   return (err ? reply() : next(err));
 }
+
+process.on('uncaughtException', console.error);
+
