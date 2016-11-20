@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node srv/server.js",
-    "setup": "sh ./bin/db.setup.sh"
+    "setup": "sh ./bin/db.setup.sh",
+    "debug": "node --debug-brk --inspect srv/server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
