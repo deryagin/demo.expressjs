@@ -1,11 +1,11 @@
 ###Изменения в БД
 
 1. Изменения можно накатить запустив `sh ./bin/db.setup.sh` или командой `npm run setup`.
-2. Выполнена нормализация. Вместо 3 таблиц создано 4:  
-  `product` (product_id, name)  
-  `provider` (provider_id, name, credit)  
-  `offer` (offer_id, product_id, provider_id, price)  
-  `booking` (booking_id, offer_id, datetime)  
+2. Выполнена нормализация. Вместо 3 таблиц создано 4:
+  `product` (product_id, name)
+  `provider` (provider_id, name, credit)
+  `offer` (offer_id, product_id, provider_id, price)
+  `booking` (booking_id, offer_id, datetime)
 3. Для всех таблиц добавлены PK, индексы и сиквенсы.
 4. Для всех FK созданы индексы, но сами FK, как ограничение не используются (не были созданы намеренно).
 5. Для значений, хранящих деньги `provider.credit` и `offer.price`, выбран тип `BIGINT`. Предполагается, что деньги будут храниться в минимальной единице измерения. Например в копейках или центах.
@@ -16,10 +16,10 @@
 
 ###Текст задания
 
-Есть база в PostgreSQL, содержащая три таблицы:  
-  `products` (product | provider | price) - содержит соответствие наименования продукта, провайдера и цены.  
-  `credits` (provider | credit) - текущий баланс провайдера.  
-  `order` (product | provider | price | datetime) - заказы.  
+Есть база в PostgreSQL, содержащая три таблицы:
+  `products` (product | provider | price) - содержит соответствие наименования продукта, провайдера и цены.
+  `credits` (provider | credit) - текущий баланс провайдера.
+  `order` (product | provider | price | datetime) - заказы.
 
 Нужно написать на Node.js обработчик запросов (node-server), реализующий следующий функционал:
 
