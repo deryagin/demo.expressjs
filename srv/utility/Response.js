@@ -1,8 +1,8 @@
 const ApiError = require('./ApiError');
+
 module.exports = Response;
 
 function Response(res) {
-
   let self = this;
 
   self.send200Ok = function send200Ok() {
@@ -11,6 +11,6 @@ function Response(res) {
 
   self.send500Error = function send500Error(error) {
     let message = (error instanceof ApiError ? error.message : 'Internal Server Error');
-    res.status(500).json({'error': message});
+    res.status(500).json({ error: message });
   };
 }

@@ -1,4 +1,5 @@
 const morgan = require('morgan');
+
 module.exports = configure();
 
 function configure() {
