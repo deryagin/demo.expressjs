@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "NodeJS-Test",
+  "name": "node.js.test",
   "main": "src/server.js",
   "scripts": {
     "start": "node srv/server.js",
