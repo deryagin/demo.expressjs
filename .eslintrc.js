@@ -4,13 +4,11 @@ module.exports = {
         "es6": true,
         "node": true
     },
-    "extends": "airbnb",
+    "extends": ["airbnb"],
     "rules": {
         "indent": ["error", 2, { "SwitchCase": 1 }],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"],
         "max-len": ["error", { "ignoreUrls": true, "code": 120 }],
+        "yoda": ["error", "always", { "exceptRange": true, "onlyEquality": true }],
         "arrow-parens": ["off"],
         "consistent-return": ["off"],
         "no-plusplus": ["off"],
@@ -18,6 +16,5 @@ module.exports = {
         "no-use-before-define": ["off"],
         "object-shorthand": ["off"],
         "prefer-const": ["off"],
-        "yoda": ["error", "always", { "exceptRange": true, "onlyEquality": true }],
     }
 };
