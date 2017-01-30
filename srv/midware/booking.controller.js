@@ -27,12 +27,12 @@ function create(req, res) {
 }
 
 function findProduct(productName) {
-  return Product.findOne({ where: { name: productName }, raw: true })
+  return Product.findOne({where: {name: productName}, raw: true})
     .then((product) => product || Promise.reject(new ApiError('Product not found!')));
 }
 
 function findOffers(product) {
-  return Offer.findAll({ where: { product_id: product.id }, order: 'price ASC', raw: true })
+  return Offer.findAll({where: {product_id: product.id}, order: 'price ASC', raw: true})
     .then((offers) => offers || Promise.reject(new ApiError('Offers not found!')));
 }
 
@@ -43,7 +43,7 @@ function findBestOffer(offers) {
 
 function makeBooking([transaction, bestOffer]) {
   let provider = Provider.writeOffCredit(bestOffer.provider_id, bestOffer.price, transaction);
-  let booking = Booking.create({ offer_id: bestOffer.id }, { transaction: transaction });
+  let booking = Booking.create({offer_id: bestOffer.id}, {transaction: transaction});
   return Promise.all([provider, booking]);
 }
 

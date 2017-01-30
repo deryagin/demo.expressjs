@@ -10,13 +10,13 @@ function configure(app) {
 
 function handle4xx(err, req, res, next) {
   console.error('400 Bad Request', err.stack);
-  let reply400 = () => res.status(400).json({ error: err.message });
+  let reply400 = () => res.status(400).json({error: err.message});
   return (err instanceof ApiError ? reply400() : next(err));
 }
 
 function handle5xx(err, req, res, next) {
   console.error('500 Internal Server Error', err.stack);
-  let reply500 = () => res.status(500).json({ error: 'Internal Server Error' });
+  let reply500 = () => res.status(500).json({error: 'Internal Server Error'});
   return (err ? reply500() : next(err));
 }
 
