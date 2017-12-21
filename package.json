@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "start": "node srv/server.js",
-    "setup": "sh ./bin/db.setup.sh",
-    "debug": "node --debug-brk --inspect srv/server.js"
+    "start": "make dev.start",
+    "setup": "make dev.setup",
+    "debug": "make dev.debug"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -14,7 +14,7 @@
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "pg": "^6.0.3",
-    "sequelize": "^3.23.6"
+    "sequelize": "^3.30.4"
   },
   "devDependencies": {
     "eslint": "^3.13.1",
