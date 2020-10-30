@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const requestLogger = require('../config/morgan.conf');
+const requestLogger = require('./morgan.conf');
 
 module.exports.configure = configure;
 

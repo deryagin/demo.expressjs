@@ -1,5 +1,5 @@
-const monitor = require('../midware/monitor.controller');
-const booking = require('../midware/booking.controller');
+const monitor = require('../module/monitor.controller');
+const booking = require('../module/booking.controller');
 
 module.exports.configure = configure;
 
