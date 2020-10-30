@@ -20,11 +20,11 @@ dev.setup:
 
 .PHONY: dev.start
 dev.start:
-	node srv/server.js
+	node src/server.js
 
 .PHONY: dev.debug
 dev.debug:
-	node --debug-brk --inspect srv/server.js
+	node --debug-brk --inspect src/server.js
 
 .PHONY: dev.codelint
 dev.codelint:

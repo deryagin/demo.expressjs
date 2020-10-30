@@ -1,7 +1,7 @@
 // Usage examples:
-// ./node_modules/.bin/eslint srv
-// ./node_modules/.bin/eslint --fix srv
-// ./node_modules/.bin/eslint --print-config srv | less
+// ./node_modules/.bin/eslint src
+// ./node_modules/.bin/eslint --fix src
+// ./node_modules/.bin/eslint --print-config src | less
 
 module.exports = {
   'env': {
